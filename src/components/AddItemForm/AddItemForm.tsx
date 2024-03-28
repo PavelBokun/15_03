@@ -4,6 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import { AddBox } from '@mui/icons-material';
 
 type AddItemFormPropsType = {
+    disabled?: boolean
     addItem: (title: string) => void
 }
 
@@ -43,8 +44,9 @@ export const AddItemForm = React.memo(function (props: AddItemFormPropsType) {
                    onKeyPress={onKeyPressHandler}
                    label="Title"
                    helperText={error}
+                   disabled={props.disabled}
         />
-        <IconButton color="primary" onClick={addItem}>
+        <IconButton color="primary" onClick={addItem}  disabled={props.disabled}>
             <AddBox/>
         </IconButton>
     </div>
